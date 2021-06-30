@@ -1,4 +1,4 @@
-const q = window.location.href.split('?')[1].split('=')[1]
+const q = window.location.href.split('?')[1].split('=')[1].split("+").join(" ")
 let isCalled = false;
 let isCalled2 = false;
 
