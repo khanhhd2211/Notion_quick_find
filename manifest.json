@@ -1,0 +1,11 @@
+{
+    "name": "Notion quick find",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["https://www.notion.so/Personal-Home-39c51d1b9adf4a14a166ee47f852577f?q=*"],
+            "js": ["content.js"]
+        }
+    ]
+}
