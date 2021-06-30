@@ -1,4 +1,4 @@
-const q = window.location.href.split('?')[location.href.split('?').length - 1].split('=')[1].split("+").join(" ")
+const q = decodeURI(window.location.href.split('?')[window.location.href.split('?').length - 1].split('=')[1].split("+").join(" "))
 let isCalled = false;
 
 function checkMain() {
