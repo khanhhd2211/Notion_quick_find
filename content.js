@@ -1,8 +1,10 @@
 const q = decodeURI(window.location.href.split('?')[window.location.href.split('?').length - 1].split('=')[1].split("+").join(" "))
 let isCalled = false;
+let isCalled2 = false;
 
 function checkMain() {
     if (isCalled === false) {
+    
         const inputActive = Array.from(document.querySelectorAll('div'))
         .find(el => el.textContent === 'Quick Find')
         if (inputActive) {
@@ -19,19 +21,20 @@ function checkMain() {
             var observer = new MutationObserver(callback);
             // Start observing
             observer.observe(wrapApp, { childList: true });
-    
-        }
+        }   
     }
 }
 
 function checkMain2() {
-
-    if (document.querySelector('input')) {
-        var input = document.querySelector("input")
-        var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
-        nativeInputValueSetter.call(input, q);
-        var ev2 = new Event('input', { bubbles: true});
-        input.dispatchEvent(ev2);
+    if (isCalled2 === false) {
+        if (document.querySelector('input')) {
+            var input = document.querySelector("input")
+            var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+            nativeInputValueSetter.call(input, q);
+            var ev2 = new Event('input', { bubbles: true});
+            input.dispatchEvent(ev2);
+            isCalled2 = true
+        }
     }
 }
 
